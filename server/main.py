@@ -38,7 +38,7 @@ def upload_file():
     filename = file.filename
     file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
     transcripted_number = transcript_number(filename)
-    return transcripted_number
+    return jsonify(transcripted_number)
 
 
 def allowed_file(filename):
@@ -55,10 +55,10 @@ def transcript_number(filename):
     try:
         float(text)
         print('ok')
-        return transcript
+        return { 'text': text }
     except ValueError:
         print('erro')
-        return '{ "error": "Number not found" }'
+        return { 'error': 'Number not found' }
 
 if __name__ == '__main__':
     load_dotenv()
