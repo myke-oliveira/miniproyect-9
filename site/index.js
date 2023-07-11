@@ -1,5 +1,3 @@
-console.log('start')
-
 document.querySelector('input[type="submit"]').addEventListener('click', async function (event) {
   event.preventDefault();
 
@@ -27,7 +25,11 @@ document.querySelector('input[type="submit"]').addEventListener('click', async f
 
     document.querySelector('#result').innerHTML = html
   } catch (error) {
-    console.log(error)
+    console.error(error)
+
+    html = '<p class="fs-1"><strong>Error:</strong> Service temporarily unavailable! Try again later. If the problem persists, call development team.</p>'
+    document.querySelector('#result').innerHTML = html
+
   }
   
 })

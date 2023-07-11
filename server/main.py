@@ -16,7 +16,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['DEBUG'] = True
 
-openai.organization = "org-9XRfyx9yvMlDpr6CNmFHWXKY"
+openai.organization = openai.api_key = os.getenv('ORGANIZATION')
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 
